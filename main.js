@@ -214,7 +214,7 @@ function actionForm()
         
         if(title.value == "" && title.value.length < 8)
         {
-         document.getElementById('p-title').textContent    = "Title Must be at least 8 characters";  
+         document.getElementById('p-title').textContent= "Title Must be at least 8 characters";  
          document.getElementById('title').style.border = "1px solid red";
           return false
         }
@@ -239,7 +239,7 @@ function actionForm()
          document.getElementById('duedate').style.border = "1px solid red";
           return false
         }
-        
+         return true
     }    
     
     
