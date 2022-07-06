@@ -216,7 +216,7 @@ function actionForm()
         {
          document.getElementById('p-title').textContent= "Title Must be at least 8 characters";  
          document.getElementById('title').style.border = "1px solid red";
-          return false
+          /*return false*/
         }
         if(description.value == "" && description.value.length < 15)
         {
@@ -233,7 +233,7 @@ function actionForm()
         }
         
         
-        if(duedate.value == "")
+        if(duedate.value < 1)
         {
          document.getElementById('p-duedate').textContent = "Please select the due date";  
          document.getElementById('duedate').style.border = "1px solid red";
@@ -241,7 +241,7 @@ function actionForm()
         }
          return true
     }    
-    
+    const submit= document.getElementById("submitButton")
     
     function formBlur(input)
     {

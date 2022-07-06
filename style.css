@@ -211,7 +211,7 @@ button {
 .cancel:hover {
   background-color: #eb196e;
 }
-.btn {
+/*.btn {
   padding: 3px;
   outline: none;
   cursor: pointer;
@@ -219,10 +219,10 @@ button {
   background-color: green;
   border-radius: 2px;
   color: #ffffff;
-  position:relative;
-  bottom:-130px;
-}
-.btn2 {
+  position:absolute;
+  bottom:0;
+}*/
+/*.btn2 {
   padding: 3px;
   outline: none;
   cursor: pointer;
@@ -230,9 +230,9 @@ button {
   background-color: red;
   border-radius: 2px;
   color: #ffffff;
-  position:relative;
-  bottom:-130px;
-  }
+  position:absolute;
+  bottom:0;
+  } */
   .btn:hover{
     background-color: lightgreen;
   }
