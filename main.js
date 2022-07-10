@@ -199,11 +199,11 @@ function flashDiv(text) {
 //Form Validation//
 document.getElementById("addButton").addEventListener("click", actionForm())
 
-function checkValidation(){
+/*function checkValidation(){
   if(actionForm() === true){
     flashDiv();
   }
-}
+}*/
 
 function actionForm(event)
     {
