@@ -173,7 +173,7 @@ function flashDiv(text) {
   flashCards.appendChild(div);
 }
 
-  addcard.addEventListener("click", function () {
+  /*addcard.addEventListener("click", function () {
   let flashInfo = {
     title: title.value,
     description: description.value,
@@ -190,7 +190,7 @@ function flashDiv(text) {
   assignto.value = "";
   duedate.value = "";
   
-});
+});*/
 
 //button action//
 
@@ -205,7 +205,7 @@ function checkValidation(){
   }
 }
 
-function actionForm()
+function actionForm(event)
     {
     var title  =    document.getElementById('title'),
         description  =    document.getElementById('description'),
@@ -215,20 +215,24 @@ function actionForm()
         if(title.value == "" && title.value.length < 8)
         {
          document.getElementById('p-title').textContent= "Title Must be at least 8 characters";  
-         document.getElementById('title').style.border = "1px solid red";
+         document.getElementById('title').style.border = "1px solid yellow";
+         console.log(event.target);
+          event.preventDefault();
           /*return false*/
         }
         if(description.value == "" && description.value.length < 15)
         {
          document.getElementById('p-description').textContent = "Description Must be at least 15 characters";
-         document.getElementById('description').style.border = "1px solid red";
-          return false
+         document.getElementById('description').style.border = "1px solid yellow";
+         console.log(event.target);
+          event.preventDefault(); 
+         /*return false*/
         }
          
         if(assignto.value == "")
         {
          document.getElementById('p-assignto').textContent = "Please provide the full name"; 
-         document.getElementById('assignto').style.border = "1px solid red";
+         document.getElementById('assignto').style.border = "1px solid yellow";
           return false
         }
         
@@ -236,13 +240,37 @@ function actionForm()
         if(duedate.value < 1)
         {
          document.getElementById('p-duedate').textContent = "Please select the due date";  
-         document.getElementById('duedate').style.border = "1px solid red";
-          return false
+         document.getElementById('duedate').style.border = "1px solid yellow";
+         console.log(event.target);
+          event.preventDefault(); 
+         //return false
         }
-         return true
-    }    
-    const submit= document.getElementById("submitButton")
+         //return true
+
+         addcard.addEventListener("click", function () {
+          let flashInfo = {
+            title: title.value,
+            description: description.value,
+            assignto: assignto.value,
+            duedate: duedate.value,
+        
+          };
+        
+          contentArray.push(flashInfo);
+          localStorage.setItem("items", JSON.stringify(contentArray));
+          flashDiv(contentArray[contentArray.length - 1]);
+          title.value = "";
+          description.value = "";
+          assignto.value = "";
+          duedate.value = "";
+        
+        });
     
+    }    
+    
+    const submit= document.getElementById("submitButton")
+    submit.addEventListener("click", actionForm);
+
     function formBlur(input)
     {
         if(input.value != '')
@@ -255,19 +283,19 @@ function actionForm()
         if(title.value.length < 8 )
         {
           title.nextElementSibling.textContent = "8"; 
-          input.style.border =       "1px solid red";
+          input.style.border =       "1px solid yellow";
         }
         
         if(description.value.length < 15 )
         {
           description.nextElementSibling.textContent = "15"; 
-          input.style.border =              "1px solid red";
+          input.style.border =              "1px solid yellow";
         }
         
         if(input.value == '')
         {
           input.nextElementSibling.textContent = "Fill the fields";
-          input.style.border =                    '1px  solid red';
+          input.style.border =                    '1px  solid yellow';
         }
         
          
